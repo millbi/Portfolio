@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+          crossorigin="anonymous">
+    <title> {% block title %}{% endblock%}</title>
+
+    <link rel="icon" href="/favicon.ico?ver=i9312" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/touch-icon-iphone.png?ver=i9312">
+    <link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png?ver=i9312">
+    <link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png?ver=i9312">
+    <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png?ver=i9312">
+    <meta name="msapplication-TileImage" content="/touch-w8-mediumtile.png?ver=i9312"/>
+    <meta name="msapplication-square70x70logo" content="/touch-w8-smalltile.png?ver=i9312"/>
+    <meta name="msapplication-square150x150logo" content="/touch-w8-mediumtile.png?ver=i9312"/>
+    <meta name="msapplication-wide310x150logo" content="/touch-w8-widetile.png?ver=i9312"/>
+    <meta name="msapplication-square310x310logo" content="/touch-w8-largetile.png?ver=i9312"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <h1><img src="http://elena.kvlar.ru/images/2g5htizl.jpg"></h1>
+        </div>
+        <div class="col-6">
+            <a href="index.html" class="btn btn-primary btn-lg">Главная</a>
+            <a href="profile.html" class="btn btn-primary btn-lg">Профиль</a>
+            <a href="about.html" class="btn btn-primary btn-lg">О сайте</a>
+            {% if user != None %}
+            <a href="create.html" class="btn btn-primary btn-lg">Новое портфолио</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% block content %}
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>

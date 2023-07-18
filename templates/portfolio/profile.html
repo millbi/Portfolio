@@ -1,0 +1,38 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<h1 class="m-5"></h1>
+<h1 class="m-5"></h1>
+<div class="container">
+    <div class="col-5">
+        <div class="card-columns">
+            <div class="card">
+                <img class="card-img"
+                     src="{{ user.profile.avatar_url.url }}"
+                     alt="">
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Информация о пользователе-> {{ user.username }}</h5>
+                    <h5 class="card-text"> Имя: {{ user.first_name }}</h5>
+                    <h5 class="card-text"> Фамилия: {{ user.last_name }}</h5>
+                    <h5 class="card-text"> Класс: {{ user.profile.edu_class }}</h5>
+                </div>
+                <div class="container-fluid text-center">
+                    <a href="{% url 'logout' %}" class="btn btn-outline-primary">Выйти из учетной записи</a>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data" action="profile.html">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ update_form|crispy}}
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Обновить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

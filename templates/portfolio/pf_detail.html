@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div class="col-2"></div>
+<div class="container overflow-hidden text-center">
+    <div class="col-8">
+        <div class="card">
+            <img src="{{portfolio.main_image.url}}" width="50%" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{portfolio.title}}</h5>
+                <p class="card-text">{{portfolio.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ученик: {{user.last_name}} {{user.first_name}}</li>
+                <li class="list-group-item">класс: {{ user.profile.edu_class}}</li>
+            </ul>
+            <div class="d-grid gap-2 d-md-block">
+                <p><img src="https://www.woman.at/_storage/asset/10778251/storage/preview/file/145305990/web.jpg"
+                        class="img-thumbnail" alt="Cinque Terre" width="60" height="60"> - {{ portfolio.likes_set.all.count }}</p>
+                <a href="{% url 'add_likes' portfolio.id %}" class="btn btn-outline-danger">Нравится</a>
+                <a href="{% url 'del_likes' portfolio.id %}" class="btn btn-outline-secondary">Не нравится</a>
+            </div>
+        </div>
+        <h1 class="m-5"></h1>
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}

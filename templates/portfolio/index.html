@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div class="col-2"></div>
+<div class="container overflow-hidden text-center">
+    <div class="col-8">
+        {% for portfolio in portfolios %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{portfolio.main_image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5><a href="{{ portfolio.id }}" class="card-title">{{portfolio.title}}</a></h5>
+                <p class="card-text">{{portfolio.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">пользователь: {{user}}</li>
+                <li class="list-group-item">предмет: {{ portfolio.subjects|join:"--" }}</li>
+            </ul>
+        </div>
+        <h1 class="m-5"></h1>
+        {% endfor %}
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}
